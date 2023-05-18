@@ -9,8 +9,26 @@ function LoginPage () {
                 <img src={Logo} alt="logo"></img>
                 <div class="login-box">
                     <p>Log In to your Pratilipi Account</p>
-                    <input type="email" placeholder="Email"></input>
-                    <input type="password" placeholder="Password"></input>
+                    <form>
+                            <input type="email" class="login-input" placeholder="Email"></input>
+                            <input type="password" class="login-input" placeholder="Password"></input>
+                    </form>
+
+                    <div class="login-form-end">
+                        <form>
+                            <input type="checkbox" id="rememberme"></input>
+                            <label for="rememberme" class="rememberme">Remember Me</label>
+                        </form>
+                        <a href="#" class="forgotpass">Forgot Password?</a>
+                    </div>
+
+                    <button class="sign-in-button">Sign In</button>
+
+                    <div class="no-account">
+                        <p>Do not have an account?</p>
+                        <a href="#">Sign Up</a>
+                    </div>
+
                 </div>
             </div>
             <div class="right-login">

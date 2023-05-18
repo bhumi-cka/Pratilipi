@@ -2,6 +2,7 @@
 
 body {
     margin: 0;
+    font-family: Nunito;
 }
 
 /* Landing Page begin */
@@ -11,6 +12,7 @@ body {
     --lighter-purple: rgba(167, 199, 255, 1);
     --off-white-background: rgba(252, 253, 255, 1);
     --dark-grey: rgba(68, 68, 68, 1);
+    --button-blue: rgba(55, 125, 255, 1);
 
 }
 
@@ -21,12 +23,9 @@ body {
 /* Navbar begin */
 
 .navbar {
-    font-family: Nunito;
     font-weight: 400;
     font-size: 15px;
     line-height: 27.28px;
-
-
 
     display: flex;
     justify-content: space-between;
@@ -56,7 +55,6 @@ body {
 }
 
 .bold-para-middle {
-    font-family: Nunito;
     font-size: 39px;
     font-style: italic;
     font-weight: 800;
@@ -67,7 +65,6 @@ body {
 }
 
 .regular-para-middle {
-    font-family: Nunito;
     font-size: 20px;
     font-weight: 400;
     letter-spacing: 0em;
@@ -93,7 +90,6 @@ body {
     padding-inline: 15px;
     height: 30px;
 
-    font-family: Nunito;
     font-weight: 900;
     font-size: 17px;
     letter-spacing: 0em;
@@ -112,42 +108,106 @@ body {
     height: 570px;
 }
 
+/* Left Side */
+
 .left-login {
     background-color: var(--lighter-purple);
-    width: 48%;
+    width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 20px;
 }
 
 .left-login > img {
     width: 80px;
     margin-inline: auto;
-    margin-top: 60px;
 }
 
 .login-box {
-    height: 380px;
+    height: 350px;
     width: 300px;
     background-color: var(--off-white-background);
     margin-inline: auto;
-    margin-bottom: 60px;
     border-radius: 6px;
     text-align: center;
-}
-
-.login-box > p {
-    font-family: Nunito;
-    font-weight: 600;
     color: var(--dark-grey);
 }
 
-.right-login {
-    background-color: var(--off-white-background);
+.login-box > p {
+    font-weight: 600;
+    margin-block: 30px;
 }
 
-.login-img {
-    margin-left: 70px;
+.login-input {
+    width : 80%;
+    padding-inline: 9px;
+    padding-block: 11px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: solid 1px black;
+}
+
+.login-input:focus {
+    outline: none;
+}
+
+.login-form-end {
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 5%;
+}
+
+.rememberme, .forgotpass {
+    font-weight: 300;
+    font-size: 12px;
+    vertical-align: middle;
+    margin-block: auto;
+}
+
+.forgotpass {
+    color: var(--button-blue);
+    margin-right: 5px;
+}
+
+#rememberme {
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.sign-in-button {
+    background-color: var(--button-blue);
+    color: white;
+    border: none;
+    width: 88%;
+    padding-block: 9px;
+    border-radius: 6px;
+    margin-top: 20px;
+    font-weight: 200;
+}
+
+.no-account {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 300;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.no-account > a {
+    margin-block: auto;
+    color: var(--button-blue);
+}
+
+/* Right Side */
+
+.right-login {
+    background-color: var(--off-white-background);
+    display: flex;
+    justify-content: center;
+    /* width: 50%; */
+    padding: 60px;
 }
 
 
