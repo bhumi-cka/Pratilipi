@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+
+body {
+    margin: 0;
+}
+
+/* Landing Page begin */
+
+:root {
+    --darker-purle: rgba(105, 157, 238, 1);
+    --lighter-purple: rgba(167, 199, 255, 1);
+    --off-white-background: rgba(252, 253, 255, 1);
+    --dark-grey: rgba(68, 68, 68, 1);
+
+}
+
+.landing-page {
+    padding-inline: 12%;
+}
+
+/* Navbar begin */
+
+.navbar {
+    font-family: Nunito;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 27.28px;
+
+
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 25px;
+    margin-block: auto;
+}
+
+.navbar > p:hover {
+    font-weight: 800;
+}
+
+/* Navbar end */
+
+/* Middle Begin */
+
+.middle-1 {
+    display: flex;
+    gap: 60px;
+    margin-top: 20px;
+}
+
+.paragraphs-middle {
+    margin-top: 20px;
+}
+
+.bold-para-middle {
+    font-family: Nunito;
+    font-size: 39px;
+    font-style: italic;
+    font-weight: 800;
+    letter-spacing: 0em;
+    text-align: left;
+
+    color: var(--darker-purle);
+}
+
+.regular-para-middle {
+    font-family: Nunito;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: justified;
+    margin-right: 60px;
+}
+
+.man-landing {
+    height: 300px;
+}
+
+.middle-2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.middle-button {
+    background-color: var(--darker-purle);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
+    padding-inline: 15px;
+    height: 30px;
+
+    font-family: Nunito;
+    font-weight: 900;
+    font-size: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+/* Middle End */
+/* Landing Page end */
+
+/* Login Page Begin */
+
+.loginpage {
+    display: flex;
+    margin-top: 200px;
+    height: 570px;
+}
+
+.left-login {
+    background-color: var(--lighter-purple);
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.left-login > img {
+    width: 80px;
+    margin-inline: auto;
+    margin-top: 60px;
+}
+
+.login-box {
+    height: 380px;
+    width: 300px;
+    background-color: var(--off-white-background);
+    margin-inline: auto;
+    margin-bottom: 60px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.login-box > p {
+    font-family: Nunito;
+    font-weight: 600;
+    color: var(--dark-grey);
+}
+
+.right-login {
+    background-color: var(--off-white-background);
+}
+
+.login-img {
+    margin-left: 70px;
+}
+
+
+
+
+/* Login Page End */
+
