@@ -26,7 +26,8 @@ body {
     font-weight: 400;
     font-size: 15px;
     line-height: 27.28px;
-
+    color: var(--dark-grey);
+    padding-top: 20px;
     display: flex;
     justify-content: space-between;
 }
@@ -36,7 +37,7 @@ body {
     margin-block: auto;
 }
 
-.navbar > p:hover {
+.navbar > a:hover {
     font-weight: 800;
 }
 
@@ -112,8 +113,8 @@ body {
 
 .left-login {
     background-color: var(--lighter-purple);
-    width: 50%;
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     gap: 20px;
@@ -211,7 +212,72 @@ body {
 }
 
 
-
-
 /* Login Page End */
 
+
+
+/* Create Account Begin */
+
+.create-account {
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.create-acc-box {
+    width: 300px;
+    background-color: var(--off-white-background);
+    margin-inline: auto;
+    border-radius: 6px;
+    text-align: center;
+    color: var(--dark-grey);
+    padding-inline: 30px;
+    padding-bottom: 30px;
+}
+
+.create-acc-box > p {
+    font-weight: 600;
+    margin-block: 30px;
+}
+
+.left-create-acc {
+    background-color: var(--lighter-purple);
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding-block: 30px;
+}
+
+.create-acc-input {
+    padding-inline: 9px;
+    padding-block: 11px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: solid 1px black;
+    width: 90%;
+}
+
+.left-create-acc > img {
+    width: 80px;
+    margin-inline: auto;
+}
+
+.create-acc-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 5px;
+}
+
+.next, .back {
+    padding-block: 5px;
+    padding-inline: 25px;
+    border-radius: 6px;
+}
+
+.back {
+    border: 1px solid var(--button-blue);
+    color: var(--dark-grey);
+    background-color: var(--off-white-background);
+}

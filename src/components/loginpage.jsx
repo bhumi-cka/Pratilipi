@@ -4,6 +4,7 @@ import Logo from "./Images/logo-purple-bg.png";
 
 function LoginPage () {
     return (
+        <div>
         <div class="loginpage">
             <div class="left-login">
                 <img src={Logo} alt="logo"></img>
@@ -34,6 +35,7 @@ function LoginPage () {
             <div class="right-login">
                 <img src={LoginImg} class="login-img" alt="computer"></img>
             </div>
+        </div>
         </div>
     );
 }
