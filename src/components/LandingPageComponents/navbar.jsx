@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "../Images/logo.png";
-import LoginPage from "../loginpage";
+import LoginPage from "../loginpage.jsx";
+import { Link } from "react-router-dom";
 
 function Navbar() {
     return (
@@ -9,7 +10,10 @@ function Navbar() {
             <a class="home-nav">Home</a>
             <a class="solution-nav">Solution</a>
             <a class="contact-nav">Contact</a>
-            <a class="login-nav">Log In</a>
+            
+            <a class="login-nav">
+                <Link to="/login">Login</Link>
+            </a>
         </div>
     )
 }
