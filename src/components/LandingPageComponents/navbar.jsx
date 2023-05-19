@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "../Images/logo.png";
-import LoginPage from "../loginpage.jsx";
+import LoginPage from "../loginPage.jsx";
 import { Link } from "react-router-dom";
 
 function Navbar() {
@@ -13,6 +13,9 @@ function Navbar() {
             
             <a class="login-nav">
                 <Link to="/login">Login</Link>
+            </a>
+            <a class="create-acc-nav">
+                <Link to="/signup">Create Account</Link>
             </a>
         </div>
     )

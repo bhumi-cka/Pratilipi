@@ -229,7 +229,6 @@ body {
 
 .create-account {
     display: flex;
-    margin-top: 20px;
     width: 100%;
     height: 570px;
 }
@@ -296,4 +295,98 @@ body {
     background-color: var(--button-blue);
     border: none;
     color: white;
+}
+
+/* Create account end */
+
+/* Audio Input Begin */
+
+.audio-input {
+    display: flex;
+    margin-top: 30px;
+}
+
+/* Left side begin */
+
+.left-audio {
+    background-color: var(--lighter-purple);
+    width: 200px;
+    height: 569px;
+}
+
+.left-audio > img {
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 0;
+}
+
+.left-audio > p {
+    color: white;
+    margin-left: 20px;
+    font-size: 15px;
+    margin-block: 7px;
+}
+
+.white-hr {
+    border: 1px solid white;
+} 
+
+.blue-hr {
+    border: 1px solid var(--darker-purle);
+}
+
+
+
+
+/* Right side audio */
+
+.right-audio {
+    width: 100%;
+}
+
+.right-audio > hr {
+    margin-top: 64px;
+}
+
+.select-lang-div {
+    display: flex;
+    justify-content: center;
+}
+
+.select-language {
+    padding: 5px 7px;
+    background-color: var(--button-blue);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.transcript {
+    margin-left: 25px;
+    margin-right: 35px;
+}
+
+.transcript-head {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.transcript-head > h3 {
+    margin: 0;
+    vertical-align:auto;
+}
+
+.transcript-head > p {
+    margin: 0;
+}
+
+.transcript > hr {
+    margin: 0;
+    /* padding: 0; */
+}
+
+.start-record, .stop-record {
+    margin: 20px;
 }

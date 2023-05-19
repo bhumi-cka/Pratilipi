@@ -1,17 +1,22 @@
 import React from "react";
-import LandingPage from "./landingpage";
-import LoginPage from "./loginpage";
-// import CreateAccount from "./createaccount";
+import LandingPage from "./landingPage";
+import LoginPage from "./loginPage";
+import CreateAccount from "./createAccount";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import AudioInput from "./audioInput";
 
 function App() {
     return (
-        <Router>
-            <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            </Routes>
-        </Router>
+        <div>
+            <Router>
+                <Routes>
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/signup" element={<CreateAccount />} />
+                </Routes>
+            </Router>
+            <AudioInput />
+        </div>
     );
 }
 
