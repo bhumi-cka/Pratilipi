@@ -1,7 +1,6 @@
 import React from "react";
 
-const usersData = {
-    "users": [
+const usersData = [
       {
         "email": "abc@gmail.com",
         "password": "abc",
@@ -11,11 +10,10 @@ const usersData = {
         "password": "xyz",
       },
       {
-        "email": "Lmn@example.com",
+        "email": "lmn@example.com",
         "password": "lmn",
       },
-    ],
-  };
+    ];
 
 
 export default usersData;

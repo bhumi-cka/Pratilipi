@@ -2,50 +2,60 @@ import React, {useState} from "react";
 import LoginImg from "./Images/loginpageimg.png";
 import Logo from "./Images/logo-purple-bg.png";
 import usersData from "./loginCred";
-import { GoogleAuth } from 'google-auth-library';
+// import { GoogleAuth } from 'google-auth-library';
+// import 'buffer';
 
-const googleAuth = new GoogleAuth({
-    clientId: 'CLIENT_ID',
-    scope: 'profile email',
-  });
+
+
+// const googleAuth = new GoogleAuth({
+//     clientId: 'CLIENT_ID',
+//     scope: 'email',
+//   });
   
 
 function LoginPage () {
 
-    // const [email, setEmail] = useState("");
-    // const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-    // function handleLogin(event) {
-    //     event.preventdefault();
+    function handleLogin(event) {
+        event.preventDefault();
 
-    //     const user = usersData.find((user) => user.email === email);
+        const email = event.target.email.value;
+        const password = event.target.password.value;
 
-    //     if (user && user.password === password) {
-    //         alert("Login successful");
-    //     }
+        const user = usersData.find(function(user) {
+            return user.email === email;
+        });
+        
 
-    //     else {
-    //         alert("Invalid login");
-    //     }
-    // }
+        if (user && user.password === password) {
+            alert("Login successful");
+        }
 
-    // function handleEmailChange(event) {
-    //     setEmail(event.target.value);
-    // }
-
-    // function handlePasswordChange(event) {
-    //     setPassword(event.target.value);
-    // }
-
-    function Login() {
-        googleAuth.signIn()
-            .then(function(res) {
-                alert(res);
-            })
-            .catch(function(err) {
-                alert(err);
-            })
+        else {
+            alert("Invalid login");
+        }
     }
+
+    function handleEmailChange(event) {
+        setEmail(event.target.value);
+    }
+
+    function handlePasswordChange(event) {
+        setPassword(event.target.value);
+    }
+
+
+    // function handleLogin() {
+    //     googleAuth.signIn()
+    //         .then(function(res) {
+    //             alert(res);
+    //         })
+    //         .catch(function(err) {
+    //             alert(err);
+    //         })
+    // }
 
 
     return (
@@ -56,31 +66,34 @@ function LoginPage () {
                 <div class="login-box">
                     <p>Log In to your Pratilipi Account</p>
                     <form onSubmit={handleLogin}>
-                        {/* <input 
+                        <input 
                             type="email" 
                             value={email} 
                             onChange={handleEmailChange} 
                             class="login-input" 
-                            placeholder="Email">
+                            placeholder="Email"
+                            name="email">
                         </input>
+
                         <input 
                             type="password" 
                             value={password}  
                             onChange={handlePasswordChange}
                             class="login-input" 
-                            placeholder="Password">
-                        </input> */}
+                            placeholder="Password"
+                            name="password">
+                        </input> 
                     
 
-                        {/* <div class="login-form-end">
+                        <div class="login-form-end">
                             <form>
                                 <input type="checkbox" id="rememberme"></input>
                                 <label for="rememberme" class="rememberme">Remember Me</label>
                             </form>
                             <a href="#" class="forgotpass">Forgot Password?</a>
-                        </div> */}
+                        </div>
 
-                        <button type="submit" onClick={handleLogin} class="sign-in-button">Sign In</button>
+                        <button type="submit" class="sign-in-button">Sign In</button>
                     </form>
 
                     <div class="no-account">
@@ -97,6 +110,7 @@ function LoginPage () {
         </div>
     );
 }
+
 
 export default LoginPage;
 
