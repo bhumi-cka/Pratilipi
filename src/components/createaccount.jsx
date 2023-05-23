@@ -1,6 +1,6 @@
 import React from "react";
-import LoginImg from "./Images/loginpageimg.png";
-import Logo from "./Images/logo-purple-bg.png";
+import LoginImg from "../Resources/Images/loginpageimg.png";
+import Logo from "../Resources/Images/logo-purple-bg.png";
 
 function CreateAccount() {
     return(

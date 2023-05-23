@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Logo from "./Images/logo-purple-bg.png";
-import SoundWave from "./Images/soundwave.png";
-import Speaker from "./Images/speaker.png";
-import Caption from "./Images/caption.png";
-import Save from "./Images/save.png";
-import StartRec from "./Images/startrec.png";
-import PauseRec from "./Images/pauserec.png";
-import StopRec from "./Images/stoprec.png";
+import Logo from "../Resources/Images/logo-purple-bg.png";
+import SoundWave from "../Resources/Images/soundwave.png";
+import Speaker from "../Resources/Images/speaker.png";
+import Caption from "../Resources/Images/caption.png";
+import Save from "../Resources/Images/save.png";
+import StartRec from "../Resources/Images/startrec.png";
+import PauseRec from "../Resources/Images/pauserec.png";
+import StopRec from "../Resources/Images/stoprec.png";
 
 
 function AudioInput() {
