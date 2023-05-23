@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import LoginImg from "./Images/loginpageimg.png";
 import Logo from "./Images/logo-purple-bg.png";
 import usersData from "./loginCred";
+
 // import { GoogleAuth } from 'google-auth-library';
 // import 'buffer';
 
@@ -10,7 +11,7 @@ import usersData from "./loginCred";
 // const googleAuth = new GoogleAuth({
 //     clientId: 'CLIENT_ID',
 //     scope: 'email',
-//   });
+// });
   
 
 function LoginPage () {
@@ -47,6 +48,7 @@ function LoginPage () {
     }
 
 
+    // Google OAuth Function
     // function handleLogin() {
     //     googleAuth.signIn()
     //         .then(function(res) {
@@ -61,8 +63,8 @@ function LoginPage () {
     return (
         <div>
         <div class="loginpage">
-            <div class="left-login">
-                <img src={Logo} alt="logo"></img>
+            {/* <div class="left-login"> */}
+                {/* <img src={Logo} alt="logo"></img> */}
                 <div class="login-box">
                     <p>Log In to your Pratilipi Account</p>
                     <form onSubmit={handleLogin}>
@@ -102,14 +104,15 @@ function LoginPage () {
                     </div>
 
                 </div>
-            </div>
-            <div class="right-login">
+            {/* </div> */}
+            {/* <div class="right-login">
                 <img src={LoginImg} class="login-img" alt="computer"></img>
-            </div>
+            </div> */}
         </div>
         </div>
     );
 }
+    
 
 
 export default LoginPage;

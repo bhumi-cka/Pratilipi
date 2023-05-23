@@ -6,8 +6,8 @@ function CreateAccount() {
     return(
         <div>
         <div class="create-account">
-            <div class="left-create-acc">
-                <img src={Logo} alt="logo"></img>
+            {/* <div class="left-create-acc"> */}
+                {/* <img src={Logo} alt="logo"></img> */}
                 <div class="create-acc-box">
                     <p>Create your Pratilipi Account</p>
                     <form>
@@ -25,10 +25,10 @@ function CreateAccount() {
                     </div>
 
                 </div>
-            </div>
-            <div class="right-login">
+            {/* </div> */}
+            {/* <div class="right-login">
                 <img src={LoginImg} class="login-img" alt="computer"></img>
-            </div>
+            </div> */}
         </div>
         </div>
     );
