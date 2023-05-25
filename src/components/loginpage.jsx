@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import LoginImg from "../Resources/Images/loginpageimg.png";
 import Logo from "../Resources/Images/logo-purple-bg.png";
 import usersData from "./loginCred";
+import { Link } from "react-router-dom";
 
 // import { GoogleAuth } from 'google-auth-library';
 // import 'buffer';
@@ -18,6 +19,7 @@ function LoginPage () {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loggedIn, setLoggedIn] = useState(false);
 
     function handleLogin(event) {
         event.preventDefault();
@@ -32,10 +34,12 @@ function LoginPage () {
 
         if (user && user.password === password) {
             alert("Login successful");
+            setLoggedIn(true);
         }
 
         else {
             alert("Invalid login");
+            setLoggedIn(false);
         }
     }
 
@@ -95,7 +99,10 @@ function LoginPage () {
                             <a href="#" class="forgotpass">Forgot Password?</a>
                         </div>
 
-                        <button type="submit" class="sign-in-button">Sign In</button>
+                        <Link to="/home">
+                            <button type="submit" class="sign-in-button">Sign In</button>
+                        </Link>
+                        
                     </form>
 
                     <div class="no-account">
