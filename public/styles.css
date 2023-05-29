@@ -369,11 +369,12 @@ body {
     margin-bottom: 0;
 }
 
-.left-audio > p {
+.left-audio > p, .meetings-link {
     color: white;
     margin-left: 20px;
     font-size: 15px;
     margin-block: 7px;
+    text-decoration: none;
 }
 
 .white-hr {
@@ -404,12 +405,9 @@ body {
 }
 
 .select-language {
-    padding: 7px 10px;
-    background-color: var(--button-blue);
-    color: white;
-    border: none;
-    border-radius: 5px;
+    padding: 5px;
 }
+
 
 .date {
     margin-left: calc(100vw - 350px);
@@ -520,8 +518,14 @@ body {
     margin-right: 68vw;
 }
 
-.inline-block {
-    display: inline-block;
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.home-header > * {
+    margin-block: auto;
 }
 
 .home-record {
@@ -548,7 +552,35 @@ body {
     cursor: pointer;
 }
 
+/* Profile Component  */
+.profile-component {
+    border: 1px solid black;
+    padding: 5px;
+    width: 100px;
+    z-index: 1;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
 
+.profile-component > p, .profile-component > h3, .profile-component > hr { 
+    margin-block: 5px;
+}
+
+
+
+.profile-component > a, .log-out-atag {
+    display: block;
+    text-decoration: none;
+    color: black;
+    margin-block: 5px;
+    font-size: 15px;
+}
+
+.email {
+    font-size: 15px;
+}
 
 
 /* Audio  */
@@ -589,42 +621,42 @@ body {
     gap: 50px;
 }
 
-.audio-button-flex > button {
+.audio-start, .audio-stop {
     background-color: #2A9BD7;
     padding-block: 5px;
     padding-inline: 7px;
     border: none;
     border-radius: 30px;
+    color: white;
+}
+
+.audio-stop {
+    background-color: red;
+}
+
+.copy-to-clipboard-button {
+    padding: 5px;
+    margin-left: calc(100vw - 360px);
+    color: white;
+    background-color: #6fcdff;
+    border-radius: 6px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 5px;
 }
 
 .audio-button-flex > button:hover {
     box-shadow: 0 0 5px grey;
 }
 
-.start-record-button-img {
+.start-record-button-img, .stop-record-button-img {
     height: 25px;
     width: 25px;
     margin: 0;
 }
 
-.stop-record-button-img {
-    height: 25px;
-    width: 25px;
-    margin: 0;
-}
 
-.box > button {
-    padding: 7px 15px;
-    background-color: var(--button-blue);
-    color: white;
-    font-size: 15px;
-    border: none;
-    border-radius: 5px;
-}
-
-.box > button {
-    background-color: var(--button-lighter-blue);
-}
 
 .audio-button-flex >button:disabled, .box > button:disabled {
     background-color: grey;
@@ -643,3 +675,4 @@ body {
 .slider-container > input {
     width: 800px;
 }
+

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Logo from "../Resources/Images/logo-purple-bg.png";
 
 
-function HomePage() {
+function Meetings() {
 
     const [hoverOverProfile, setHoverOverProfile] = useState(false);
     const [hoverOverComp, setHoverOverComp] = useState(false);
@@ -25,7 +25,9 @@ function HomePage() {
             <div class="left-audio">
                 <img src={Logo} alt="logo"></img>
                 <hr class="white-hr"></hr>
-                <p>Home</p>
+                <Link to="/home">
+                    <a href="#">Home</a>
+                </Link>
                 <hr class="blue-hr"></hr>
                 <Link to="/meetings">
                     <a class="meetings-link" href="#">Meetings</a>
@@ -43,7 +45,10 @@ function HomePage() {
 
             <div class="right-audio right-home">
                 <div class="home-header">
-                    <h2>Home</h2>
+                    <h2>Meetings</h2>
+                    <Link to="/record">
+                        <button>Record</button>
+                    </Link>
                     <button onMouseOver={hoverOver} onMouseOut={hoverOut} class="home-profile"></button>
                 </div>
                 {hoverOverProfile && (
@@ -73,4 +78,4 @@ function HomePage() {
     )
 }
 
-export default HomePage;
+export default Meetings;

@@ -1,9 +1,9 @@
-
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import {useState, useEffect} from "react";
+import useClipboard from "react-use-clipboard";
 import Logo from "../Resources/Images/logo-purple-bg.png"; 
 import MicOn from "../Resources/Images/micOn.png";
-import MicStop from "../Resources/Images/micStop.png";
+import MicStop from "../Resources/Images/stoprec.png";
 
 
 const AudioTest = () => {
@@ -15,12 +15,19 @@ const AudioTest = () => {
     const [elapsedTime, setElapsedTime] = useState(0);
     const [sliderValue, setSliderValue] = useState(0);
     const [isRecording, setIsRecording] = useState(false);
+    const [isCopied, setCopied] = useClipboard(textToCopy, {
+        successDuration:1000
+    });
+    const [transLanguage, setTransLanguage] = useState("");
 
 
-    //subscribe to thapa technical for more awesome videos
+    function handleSelect(event) {
+        setTransLanguage(event.target.value);
+    }
 
     const startListening = () => {
-        SpeechRecognition.startListening({ continuous: true, language: 'en-IN' });
+        SpeechRecognition.startListening({ continuous: true, language: transLanguage });
+        alert(transLanguage);
         setIsRecording(true);
     };
 
@@ -49,6 +56,10 @@ const AudioTest = () => {
 
     const { transcript, browserSupportsSpeechRecognition } = useSpeechRecognition();
 
+    useEffect(() => {
+        setTextToCopy(transcript); // Update the textToCopy when transcript changes
+      }, [transcript]);
+
     if (!browserSupportsSpeechRecognition) {
         return null
     }
@@ -76,13 +87,20 @@ const AudioTest = () => {
             <div class="right-audio">
                 <hr></hr>
                 <div class="select-lang-div">
-                    <button class="select-language">Select Language</button>
+                    <select class="select-language" value={transLanguage} onChange={handleSelect} name="language">
+                        <option value="en-IN">English (India)</option>
+                        <option value="hi-IN">Hindi</option>
+                        <option value="mr-IN">Marathi</option>
+                    </select>
                 </div>
 
                 <p class="date">{date}</p>
+                <button onClick={setCopied} class="copy-to-clipboard-button">
+                        {isCopied ? 'Copied!' : 'Copy to Clipboard'}
+                </button>
 
                 <div class="container-flex">
-                    <div className="box audio-test-box">
+                    <div className="box audio-test-box" onClick={() => setTextToCopy(transcript)}>
                         {transcript}
                     </div>
                 </div>
@@ -102,10 +120,10 @@ const AudioTest = () => {
                 </div>
 
                 <div className="audio-button-flex">
-                    <button onClick={startListening}>
+                    <button class="audio-start" onClick={startListening}>
                         <img class="start-record-button-img" src={MicOn} alt="mic-on-img"></img>
                     </button>
-                    <button onClick={stopListening}>
+                    <button class="audio-stop" onClick={stopListening}>
                         <img class="stop-record-button-img" src={MicStop} alt="mic-stop-img"></img>
                     </button>
                 </div>
