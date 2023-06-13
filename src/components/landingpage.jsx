@@ -12,33 +12,35 @@ import ImageComp from "../Resources/Images/ComputerLanding.png";
 
 function LandingPage () {
 
-    const [popup, setPopup] = useState(false);
+    const [popupLogin, setPopup] = useState(false);
     const [popupAcc, setPopupAcc] = useState(false);
 
-
         function togglePopupLogin() {
-            setPopup(!popup)
+            setPopup(!popupLogin);
         }
 
         function togglePopupAcc() {
-            setPopupAcc(!popupAcc)
+            setPopupAcc(!popupAcc);
         }
 
 
+
+
+
     return (
-        <div class="landing-page">
+        <div className="landing-page">
             <div>
-                <div class="navbar">
-                    <img src={Image} class="logo" alt="logo"></img>
-                    <a class="home-nav">Home</a>
-                    <a class="solution-nav">Solution</a>
-                    <a class="contact-nav">Contact</a>
+                <div className="navbar">
+                    <img src={Image} className="logo" alt="logo"></img>
+                    <a className="home-nav">Home</a>
+                    <a className="solution-nav">Solution</a>
+                    <a className="contact-nav">Contact</a>
                     
-                    <button onClick={togglePopupLogin} class="login-button">Login</button>
-                    <button onClick={togglePopupAcc} class="login-button">Create Account</button>
+                    <button onClick={togglePopupLogin} className="login-button">Login</button>
+                    <button onClick={togglePopupAcc} className="login-button">Create Account</button>
                 </div>
 
-                {popup && (<div class="popup">
+                {popupLogin && (<div className="popup">
                 <div className="overlay"></div>
                 <div className="popup-content">
                     <LoginPage />
@@ -46,25 +48,28 @@ function LandingPage () {
                 </div>
                 </div>)}
 
-                {popupAcc && (<div class="popup">
+                {popupAcc && (<div className="popup">
                 <div className="overlay"></div>
                 <div className="popup-content">
                     <CreateAccount />
                     <button className="close-popup" onClick={togglePopupAcc}>×</button>
                 </div>
                 </div>)}
+
+
+
             </div>
 
             <div>
-            <div class="middle-1">
-                <div class="paragraphs-middle">
-                    <p class="bold-para-middle">Empowering business users with real-time transcription of conversations in multiple languages using AI</p>
-                    <p class="regular-para-middle">Pratilipi uses artificial intelligence to empower users with real-time transcription during business meeting in multiple languages.</p>
+            <div className="middle-1">
+                <div className="paragraphs-middle">
+                    <p className="bold-para-middle">Empowering business users with real-time transcription of conversations in multiple languages using AI</p>
+                    <p className="regular-para-middle">Pratilipi uses artificial intelligence to empower users with real-time transcription during business meeting in multiple languages.</p>
                 </div>
-                <img src={ImageMan} alt="man" class="man-landing"></img>
+                <img src={ImageMan} alt="man" className="man-landing"></img>
             </div>
-            <div class="middle-2">
-                <button class="middle-button">Learn More</button>
+            <div className="middle-2">
+                <button className="middle-button">Learn More</button>
                 <img src={ImageComp} alt="computer"></img>
             </div>
         </div>

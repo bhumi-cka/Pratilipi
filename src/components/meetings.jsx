@@ -19,42 +19,55 @@ function Meetings() {
     }
 
     return (
-        <div class="homepage">
-            <div class="audio-input">
+        <div className="homepage">
+            <div className="audio-input">
 
-            <div class="left-audio">
+            <div className="left-audio">
                 <img src={Logo} alt="logo"></img>
-                <hr class="white-hr"></hr>
+                <hr className="white-hr"></hr>
                 <Link to="/home">
-                    <a href="#">Home</a>
+                    <a className="home-link" href="#">Home</a>
                 </Link>
-                <hr class="blue-hr"></hr>
+                <hr className="blue-hr"></hr>
                 <Link to="/meetings">
-                    <a class="meetings-link" href="#">Meetings</a>
+                    <a className="meetings-link" href="#">Meetings</a>
                 </Link>
-                <hr class="blue-hr"></hr>
+                <hr className="blue-hr"></hr>
                 <p>Pending Tasks</p>
-                <hr class="blue-hr"></hr>
+                <hr className="blue-hr"></hr>
                 <p>Complete Tasks</p>
-                <hr class="blue-hr"></hr>
+                <hr className="blue-hr"></hr>
                 <p>Past Recordings</p>
-                <hr class="white-hr"></hr>
+                <hr className="white-hr"></hr>
                 <p>Settings</p>
 
             </div>
 
-            <div class="right-audio right-home">
-                <div class="home-header">
+            <div className="right-audio right-home">
+
+                <div className="home-header">
+
                     <h2>Meetings</h2>
-                    <Link to="/record">
-                        <button>Record</button>
-                    </Link>
-                    <button onMouseOver={hoverOver} onMouseOut={hoverOut} class="home-profile"></button>
+
+                    <div className="meetings-head-right">
+                        <Link to="/record">
+                            <button className="record-meetings-button">Record</button>
+                        </Link>
+                        <button className="meetings-head-button">Import</button>
+                        <button className="meetings-head-button">Share</button>
+                        <button
+                            onMouseOver={hoverOver} 
+                            onMouseOut={hoverOut} 
+                            className="home-profile">
+                        </button>
+                    </div>
+
                 </div>
+
                 {hoverOverProfile && (
-                    <div onMouseOver={hoverOver} onMouseOut={hoverOut} class="profile-component">
+                    <div onMouseOver={hoverOver} onMouseOut={hoverOut} className="profile-component">
                         <h3>Name</h3>
-                        <p class="email">Email</p>
+                        <p className="email">Email</p>
                         <hr></hr>
                         <a href="#">Profile</a>
                         <a href="#">Account</a>
@@ -62,7 +75,7 @@ function Meetings() {
                         <a href="#">Help</a>
                         <hr></hr>
                         <Link to="/">
-                            <a class="log-out-atag" href="#">Log Out</a>
+                            <a className="log-out-atag" href="#">Log Out</a>
                         </Link>
                     </div>
                 )}

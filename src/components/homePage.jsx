@@ -1,12 +1,16 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../Resources/Images/logo-purple-bg.png";
+import { UserContext } from "./UserContext.js";
+import axios from "axios";
 
 
 function HomePage() {
 
+
     const [hoverOverProfile, setHoverOverProfile] = useState(false);
     const [hoverOverComp, setHoverOverComp] = useState(false);
+    const [fetchedUserData, setFetchedUserData] = useState(null);
 
     function hoverOver() {
         setHoverOverProfile(true);
@@ -18,38 +22,56 @@ function HomePage() {
         setHoverOverComp(false);
     }
 
-    return (
-        <div class="homepage">
-            <div class="audio-input">
+    useEffect(() => {
+        axios
+          .get("http://localhost:3001/Data")
+          .then((response) => {
+            console.log(response.data);
+            setFetchedUserData(response.data);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+    },  []);
 
-            <div class="left-audio">
+    return (
+        <div className="homepage">
+            <div className="audio-input">
+
+            <div className="left-audio">
                 <img src={Logo} alt="logo"></img>
-                <hr class="white-hr"></hr>
-                <p>Home</p>
-                <hr class="blue-hr"></hr>
-                <Link to="/meetings">
-                    <a class="meetings-link" href="#">Meetings</a>
+                <hr className="white-hr"></hr>
+                <Link to="/home">
+                    <a className="home-link" href="#">Home</a>
                 </Link>
-                <hr class="blue-hr"></hr>
+                <hr className="blue-hr"></hr>
+                <Link to="/meetings">
+                    <a className="meetings-link" href="#">Meetings</a>
+                </Link>
+                <hr className="blue-hr"></hr>
                 <p>Pending Tasks</p>
-                <hr class="blue-hr"></hr>
+                <hr className="blue-hr"></hr>
                 <p>Complete Tasks</p>
-                <hr class="blue-hr"></hr>
+                <hr className="blue-hr"></hr>
                 <p>Past Recordings</p>
-                <hr class="white-hr"></hr>
+                <hr className="white-hr"></hr>
                 <p>Settings</p>
 
             </div>
 
-            <div class="right-audio right-home">
-                <div class="home-header">
+            <div className="right-audio right-home">
+                <div className="home-header">
                     <h2>Home</h2>
-                    <button onMouseOver={hoverOver} onMouseOut={hoverOut} class="home-profile"></button>
+                    <button onMouseOver={hoverOver} onMouseOut={hoverOut} className="home-profile"></button>
                 </div>
+
                 {hoverOverProfile && (
-                    <div onMouseOver={hoverOver} onMouseOut={hoverOut} class="profile-component">
-                        <h3>Name</h3>
-                        <p class="email">Email</p>
+                    <div onMouseOver={hoverOver} onMouseOut={hoverOut} className="profile-component">
+
+                        <h3>{fetchedUserData.fullName}</h3>
+
+                        {/* <h3>Name</h3> */}
+                        <p className="email">userData.email</p>
                         <hr></hr>
                         <a href="#">Profile</a>
                         <a href="#">Account</a>
@@ -57,7 +79,7 @@ function HomePage() {
                         <a href="#">Help</a>
                         <hr></hr>
                         <Link to="/">
-                            <a class="log-out-atag" href="#">Log Out</a>
+                            <a className="log-out-atag" href="#">Log Out</a>
                         </Link>
                     </div>
                 )}

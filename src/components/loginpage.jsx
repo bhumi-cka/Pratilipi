@@ -1,25 +1,36 @@
-import React, {useState} from "react";
+import React, {useState, useContext, useEffect} from "react";
 import LoginImg from "../Resources/Images/loginpageimg.png";
 import Logo from "../Resources/Images/logo-purple-bg.png";
 import usersData from "./loginCred";
 import { Link } from "react-router-dom";
-
-// import { GoogleAuth } from 'google-auth-library';
-// import 'buffer';
-
-
-
-// const googleAuth = new GoogleAuth({
-//     clientId: 'CLIENT_ID',
-//     scope: 'email',
-// });
-
+import { UserContext } from "./UserContext.js";
+import axios from "axios";
 
 function LoginPage () {
+
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loggedIn, setLoggedIn] = useState(false);
+    const [fetchedUserData, setFetchedUserData] = useState(null);
+    const [LPisDisabled, setLPisDisabled] = useState(true);
+
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await axios.get('http://localhost:3001/Data');
+            setUsers(response.data);
+          } catch (error) {
+            console.error(error);
+          }
+        };
+    
+        fetchData();
+      }, []);
+
+    console.log(users.email);
 
     function handleLogin(event) {
         event.preventDefault();
@@ -27,14 +38,16 @@ function LoginPage () {
         const email = event.target.email.value;
         const password = event.target.password.value;
 
-        const user = usersData.find(function(user) {
+
+        const user = users.find(function(user) {
             return user.email === email;
         });
         
 
-        if (user && user.password === password) {
+        if (user && users.password === password) {
             alert("Login successful");
             setLoggedIn(true);
+            setLPisDisabled(false);
         }
 
         else {
@@ -52,31 +65,17 @@ function LoginPage () {
     }
 
 
-    // Google OAuth Function
-    // function handleLogin() {
-    //     googleAuth.signIn()
-    //         .then(function(res) {
-    //             alert(res);
-    //         })
-    //         .catch(function(err) {
-    //             alert(err);
-    //         })
-    // }
-
-
     return (
         <div>
-        <div class="loginpage">
-            {/* <div class="left-login"> */}
-                {/* <img src={Logo} alt="logo"></img> */}
-                <div class="login-box">
+        <div className="loginpage">
+                <div className="login-box">
                     <p>Log In to your Pratilipi Account</p>
                     <form onSubmit={handleLogin}>
                         <input 
                             type="email" 
                             value={email} 
                             onChange={handleEmailChange} 
-                            class="login-input" 
+                            className="login-input" 
                             placeholder="Email"
                             name="email">
                         </input>
@@ -85,35 +84,38 @@ function LoginPage () {
                             type="password" 
                             value={password}  
                             onChange={handlePasswordChange}
-                            class="login-input" 
+                            className="login-input" 
                             placeholder="Password"
                             name="password">
                         </input> 
                     
 
-                        <div class="login-form-end">
+                        <div className="login-form-end">
                             <form>
                                 <input type="checkbox" id="rememberme"></input>
-                                <label for="rememberme" class="rememberme">Remember Me</label>
+                                <label for="rememberme" className="rememberme">Remember Me</label>
                             </form>
-                            <a href="#" class="forgotpass">Forgot Password?</a>
+                            <a href="#" className="forgotpass">Forgot Password?</a>
                         </div>
 
+                        
                         <Link to="/home">
-                            <button type="submit" class="sign-in-button">Sign In</button>
+                            <button type="submit" className="sign-in-button">Sign In</button>
                         </Link>
+
+                        
                         
                     </form>
 
-                    <div class="no-account">
+                    <div className="no-account">
                         <p>Do not have an account?</p>
                         <a href="#">Sign Up</a>
                     </div>
 
                 </div>
             {/* </div> */}
-            {/* <div class="right-login">
-                <img src={LoginImg} class="login-img" alt="computer"></img>
+            {/* <div className="right-login">
+                <img src={LoginImg} className="login-img" alt="computer"></img>
             </div> */}
         </div>
         </div>

@@ -4,6 +4,7 @@ import useClipboard from "react-use-clipboard";
 import Logo from "../Resources/Images/logo-purple-bg.png"; 
 import MicOn from "../Resources/Images/micOn.png";
 import MicStop from "../Resources/Images/stoprec.png";
+import axios from 'axios';
 
 
 const AudioTest = () => {
@@ -25,15 +26,34 @@ const AudioTest = () => {
         setTransLanguage(event.target.value);
     }
 
+    const sendAudioData = async () => {
+        try {
+            const audioFile = new FormData();
+            audioFile.append('audio', textToCopy);
+
+            const response = await axios.post('http://localhost:3000', audioFile, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+
+            alert('Audio sent');
+        }
+        
+        catch (error) {
+            alert("Failed to send data");
+        }
+    }
+
     const startListening = () => {
         SpeechRecognition.startListening({ continuous: true, language: transLanguage });
-        alert(transLanguage);
         setIsRecording(true);
     };
 
     const stopListening = () => {
         SpeechRecognition.stopListening();
         setIsRecording(false);
+        sendAudioData();
     };
 
     const handleSliderChange = (event) => {
@@ -52,13 +72,13 @@ const AudioTest = () => {
         return () => {
             clearTimeout(timer);
         };
-        }, [isRecording, elapsedTime]);
+    }, [isRecording, elapsedTime]);
 
     const { transcript, browserSupportsSpeechRecognition } = useSpeechRecognition();
 
     useEffect(() => {
         setTextToCopy(transcript); // Update the textToCopy when transcript changes
-      }, [transcript]);
+    }, [transcript]);
 
     if (!browserSupportsSpeechRecognition) {
         return null
@@ -66,40 +86,40 @@ const AudioTest = () => {
 
 
     return(
-        <div class="audio-input">
-            <div class="left-audio">
+        <div className="audio-input">
+            <div className="left-audio">
                 <img src={Logo} alt="logo"></img>
-                <hr class="white-hr"></hr>
+                <hr className="white-hr"></hr>
                 <p>Home</p>
-                <hr class="blue-hr"></hr>
+                <hr className="blue-hr"></hr>
                 <p>Meetings</p>
-                <hr class="blue-hr"></hr>
+                <hr className="blue-hr"></hr>
                 <p>Pending Tasks</p>
-                <hr class="blue-hr"></hr>
+                <hr className="blue-hr"></hr>
                 <p>Complete Tasks</p>
-                <hr class="blue-hr"></hr>
+                <hr className="blue-hr"></hr>
                 <p>Past Recordings</p>
-                <hr class="white-hr"></hr>
+                <hr className="white-hr"></hr>
                 <p>Settings</p>
 
             </div>
 
-            <div class="right-audio">
+            <div className="right-audio">
                 <hr></hr>
-                <div class="select-lang-div">
-                    <select class="select-language" value={transLanguage} onChange={handleSelect} name="language">
+                <div className="select-lang-div">
+                    <select className="select-language" value={transLanguage} onChange={handleSelect} name="language">
                         <option value="en-IN">English (India)</option>
                         <option value="hi-IN">Hindi</option>
                         <option value="mr-IN">Marathi</option>
                     </select>
                 </div>
 
-                <p class="date">{date}</p>
-                <button onClick={setCopied} class="copy-to-clipboard-button">
+                <p className="date">{date}</p>
+                <button onClick={setCopied} className="copy-to-clipboard-button">
                         {isCopied ? 'Copied!' : 'Copy to Clipboard'}
                 </button>
 
-                <div class="container-flex">
+                <div className="container-flex">
                     <div className="box audio-test-box" onClick={() => setTextToCopy(transcript)}>
                         {transcript}
                     </div>
@@ -120,11 +140,11 @@ const AudioTest = () => {
                 </div>
 
                 <div className="audio-button-flex">
-                    <button class="audio-start" onClick={startListening}>
-                        <img class="start-record-button-img" src={MicOn} alt="mic-on-img"></img>
+                    <button className="audio-start" onClick={startListening}>
+                        <img className="start-record-button-img" src={MicOn} alt="mic-on-img"></img>
                     </button>
-                    <button class="audio-stop" onClick={stopListening}>
-                        <img class="stop-record-button-img" src={MicStop} alt="mic-stop-img"></img>
+                    <button className="audio-stop" onClick={stopListening}>
+                        <img className="stop-record-button-img" src={MicStop} alt="mic-stop-img"></img>
                     </button>
                 </div>
             </div>

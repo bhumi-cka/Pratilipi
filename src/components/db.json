@@ -1,0 +1,11 @@
+{
+    "Data": [{
+        "firstName": "Bhumicka",
+        "age": 19,
+        "dob": "2023-06-14",
+        "mobile": 234432,
+        "profession": "Student",
+        "email": "bhumickabhaangaley@gmail.com",
+        "password": "abc"
+    }]
+}
