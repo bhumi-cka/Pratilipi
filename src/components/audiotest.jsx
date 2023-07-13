@@ -1,5 +1,6 @@
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import {useState, useEffect} from "react";
+import { Link } from 'react-router-dom';
 import useClipboard from "react-use-clipboard";
 import Logo from "../Resources/Images/logo-purple-bg.png"; 
 import MicOn from "../Resources/Images/micOn.png";
@@ -87,25 +88,12 @@ const AudioTest = () => {
 
     return(
         <div className="audio-input">
-            <div className="left-audio">
-                <img src={Logo} alt="logo"></img>
-                <hr className="white-hr"></hr>
-                <p>Home</p>
-                <hr className="blue-hr"></hr>
-                <p>Meetings</p>
-                <hr className="blue-hr"></hr>
-                <p>Pending Tasks</p>
-                <hr className="blue-hr"></hr>
-                <p>Complete Tasks</p>
-                <hr className="blue-hr"></hr>
-                <p>Past Recordings</p>
-                <hr className="white-hr"></hr>
-                <p>Settings</p>
 
-            </div>
+            {/* Left panel */}
+            
 
             <div className="right-audio">
-                <hr></hr>
+
                 <div className="select-lang-div">
                     <select className="select-language" value={transLanguage} onChange={handleSelect} name="language">
                         <option value="en-IN">English (India)</option>

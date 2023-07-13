@@ -456,6 +456,7 @@ body {
     font-weight: 400;
     font-size: 15px;
     margin-top: 5px;
+    margin-bottom: 0;
 }
 
 .transcript {
@@ -550,6 +551,7 @@ body {
 
 
 /* Home Page Begin */
+
 .right-home > hr {
     margin-top: 0;
 }
@@ -570,7 +572,12 @@ body {
     margin-block: auto;
 }
 
+.highlighted {
+    background-color: #699DEE;
+}
+
 /* Meetings */
+
 .meetings-head-right > * {
     margin-left: 30px;
     cursor: pointer;
@@ -591,6 +598,7 @@ body {
     padding: 5px 13px;
     border-radius: 5px;
     cursor: pointer;
+    visibility: hidden;
 }
 
 .home-record {
@@ -636,8 +644,6 @@ body {
     margin-block: 5px;
 }
 
-
-
 .profile-component > a, .log-out-atag {
     display: block;
     text-decoration: none;
@@ -649,6 +655,31 @@ body {
 .email {
     font-size: 14px;
 }
+
+/* Home Page Middle */
+.left-home-middle {
+    padding-left: 30px;
+}
+ 
+.home-page-h2 {
+    width: 65%;
+    line-height: 17px;
+}
+
+
+.blue-button {
+    background-color: var(--button-blue);
+    color: white;
+    cursor: pointer;
+    padding: 7px 12px;
+    font-weight: 600;
+    font-size: 13px;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 2px 2px 3px grey;
+    margin-top: 10px;
+}
+
 
 
 /* Audio  */
@@ -673,7 +704,7 @@ body {
 .box {
     width: 1000px;
     height: 300px;
-    border: 0.5px solid rgb(110, 110, 110);
+    border: 1px solid rgb(202, 202, 202);
     overflow: auto;
 }
 
@@ -712,6 +743,7 @@ body {
     border: none;
     cursor: pointer;
     margin-bottom: 5px;
+    margin-top: 0;
 }
 
 .audio-button-flex > button:hover {

@@ -1,12 +1,9 @@
 import React from "react";
 import { useState } from "react";
-// import Navbar from "./LandingPageComponents/navbar.jsx";
-// import Middle from "./LandingPageComponents/middle.jsx";
-
 import Image from "../Resources/Images/logo.png";
-import LoginPage from "./loginpage";
+import LoginPage from "./LoginPage";
 import { Link } from "react-router-dom";
-import CreateAccount from "./createAccount";
+import CreateAccount from "./CreateAccount";
 import ImageMan from "../Resources/Images/ManLanding.png";
 import ImageComp from "../Resources/Images/ComputerLanding.png";
 

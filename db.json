@@ -1,19 +1,54 @@
 {
-  "posts": [
+  "Data": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "fullName": "Bhumicka",
+      "age": 19,
+      "dob": "2023-06-14",
+      "mobile": 234432,
+      "profession": "Student",
+      "email": "bbb@gmail.com",
+      "password": "abc"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "fullName": "PPPP",
+      "age": "99",
+      "dob": "0022-02-01",
+      "mobile": "22222",
+      "profession": "fffff",
+      "email": "pp@gmail.com",
+      "password": "abc",
+      "id": 9
+    },
+    {
+      "fullName": "lala@gmail.com",
+      "age": "29",
+      "dob": "2003-12-29",
+      "mobile": "8888888888",
+      "profession": "jihun",
+      "email": "lala@gmail.com",
+      "password": "bbb",
+      "id": 10
+    },
+    {
+      "fullName": "Bh",
+      "age": "8",
+      "dob": "8888-08-08",
+      "mobile": "9999988888",
+      "profession": "8888899999",
+      "email": "i@i.com",
+      "password": "ii",
+      "id": 11
+    },
+    {
+      "fullName": "Alexandria",
+      "age": "22",
+      "dob": "2002-07-10",
+      "mobile": "9872391006",
+      "profession": "Student",
+      "email": "alex@gmail.com",
+      "password": "123",
+      "id": 12
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

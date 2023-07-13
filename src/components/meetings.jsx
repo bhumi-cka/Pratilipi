@@ -1,12 +1,18 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import Logo from "../Resources/Images/logo-purple-bg.png";
-
+import AudioTest from "./AudioTest";
+import axios from "axios";
 
 function Meetings() {
 
+    const location = useLocation();
+    const { email } = location.state;
+    
+
     const [hoverOverProfile, setHoverOverProfile] = useState(false);
     const [hoverOverComp, setHoverOverComp] = useState(false);
+    const [user, setUser] = useState(null);
 
     function hoverOver() {
         setHoverOverProfile(true);
@@ -18,6 +24,30 @@ function Meetings() {
         setHoverOverComp(false);
     }
 
+    useEffect(() => {
+        axios
+          .get("http://localhost:3001/Data", { params: { email: email } })
+          .then((response) => {
+            console.log(response.data);
+            setUser(response.data);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+    }, []);
+
+    const navigate=useNavigate();
+
+    function handleHomePageNavigate(event) {
+        event.preventDefault();
+        navigate("/home", { state: { email: email } });
+    }
+
+    function handleMeetingsNavigate(event) {
+        event.preventDefault();
+        navigate("/meetings", { state: { email: email } });
+    }
+
     return (
         <div className="homepage">
             <div className="audio-input">
@@ -25,14 +55,16 @@ function Meetings() {
             <div className="left-audio">
                 <img src={Logo} alt="logo"></img>
                 <hr className="white-hr"></hr>
-                <Link to="/home">
-                    <a className="home-link" href="#">Home</a>
-                </Link>
-                <hr className="blue-hr"></hr>
-                <Link to="/meetings">
-                    <a className="meetings-link" href="#">Meetings</a>
-                </Link>
-                <hr className="blue-hr"></hr>
+
+                <a className="home-link" onClick={handleHomePageNavigate} href="#">Home</a>
+                
+                <div class="highlighted">
+                    <hr className="blue-hr"></hr>
+                    
+                    <a onClick={handleMeetingsNavigate} className="meetings-link" href="#">Meetings</a>
+                    
+                    <hr className="blue-hr"></hr>
+                </div>
                 <p>Pending Tasks</p>
                 <hr className="blue-hr"></hr>
                 <p>Complete Tasks</p>
@@ -50,9 +82,9 @@ function Meetings() {
                     <h2>Meetings</h2>
 
                     <div className="meetings-head-right">
-                        <Link to="/record">
+                        {/* <Link to="/record"> */}
                             <button className="record-meetings-button">Record</button>
-                        </Link>
+                        {/* </Link> */}
                         <button className="meetings-head-button">Import</button>
                         <button className="meetings-head-button">Share</button>
                         <button
@@ -66,8 +98,8 @@ function Meetings() {
 
                 {hoverOverProfile && (
                     <div onMouseOver={hoverOver} onMouseOut={hoverOut} className="profile-component">
-                        <h3>Name</h3>
-                        <p className="email">Email</p>
+                        <h3>{user[0].fullName}</h3>
+                        <p className="email">{user[0].email}</p>
                         <hr></hr>
                         <a href="#">Profile</a>
                         <a href="#">Account</a>
@@ -79,11 +111,12 @@ function Meetings() {
                         </Link>
                     </div>
                 )}
-                
+
                 <hr></hr>
 
-                
-
+                <div>
+                    <AudioTest />
+                </div>
 
             </div>
             </div>

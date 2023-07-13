@@ -1,69 +1,28 @@
 import React, {useState, useContext, useEffect} from "react";
 import LoginImg from "../Resources/Images/loginpageimg.png";
 import Logo from "../Resources/Images/logo-purple-bg.png";
-import usersData from "./loginCred";
-import { Link } from "react-router-dom";
-import { UserContext } from "./UserContext.js";
+import usersData from "./LoginCred";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+
 
 function LoginPage () {
 
-
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [loggedIn, setLoggedIn] = useState(false);
     const [fetchedUserData, setFetchedUserData] = useState(null);
-    const [LPisDisabled, setLPisDisabled] = useState(true);
-
-    const [users, setUsers] = useState([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-          try {
-            const response = await axios.get('http://localhost:3001/Data');
-            setUsers(response.data);
-          } catch (error) {
-            console.error(error);
-          }
-        };
-    
-        fetchData();
-      }, []);
-
-    console.log(users.email);
-
-    function handleLogin(event) {
-        event.preventDefault();
-
-        const email = event.target.email.value;
-        const password = event.target.password.value;
-
-
-        const user = users.find(function(user) {
-            return user.email === email;
-        });
-        
-
-        if (user && users.password === password) {
-            alert("Login successful");
-            setLoggedIn(true);
-            setLPisDisabled(false);
-        }
-
-        else {
-            alert("Invalid login");
-            setLoggedIn(false);
-        }
-    }
+    const [redirectEmail, setRedirectEmail] = useState("");
 
     function handleEmailChange(event) {
         setEmail(event.target.value);
+        console.log(email);
     }
 
-    function handlePasswordChange(event) {
-        setPassword(event.target.value);
-    }
+    const navigate=useNavigate();
 
+    function handleLogin(event) {
+        event.preventDefault();
+        navigate("/home", { state: { email: email } });
+    }
 
     return (
         <div>
@@ -82,9 +41,7 @@ function LoginPage () {
 
                         <input 
                             type="password" 
-                            value={password}  
-                            onChange={handlePasswordChange}
-                            className="login-input" 
+                            className="login-input"
                             placeholder="Password"
                             name="password">
                         </input> 
@@ -98,12 +55,8 @@ function LoginPage () {
                             <a href="#" className="forgotpass">Forgot Password?</a>
                         </div>
 
-                        
-                        <Link to="/home">
-                            <button type="submit" className="sign-in-button">Sign In</button>
-                        </Link>
 
-                        
+                        <button type="submit" className="sign-in-button">Sign In</button>
                         
                     </form>
 
@@ -113,15 +66,11 @@ function LoginPage () {
                     </div>
 
                 </div>
-            {/* </div> */}
-            {/* <div className="right-login">
-                <img src={LoginImg} className="login-img" alt="computer"></img>
-            </div> */}
+         
         </div>
         </div>
     );
 }
-    
 
 
 export default LoginPage;

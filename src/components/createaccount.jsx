@@ -1,16 +1,13 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { UserContext } from "./UserContext";
 import axios from "axios";
 import greenTick from "../Resources/Images/green-tick.png";
 
 
 function CreateAccount() {
 
-    const navigate = useNavigate();
 
     const [userData, setUserData] = useState({});
-    const { updateUser } = useContext(UserContext);
     const [setPass, setSetPass] = useState(false);
     const [setCreate, setSetCreate] = useState(true);
     const [created, setCreated] = useState(false);
@@ -30,17 +27,14 @@ function CreateAccount() {
 
     function handleFinish(e) {
         setSetPass(false);
-        setCreated(true);
         e.preventDefault();
 
-        const Data = JSON.stringify(userData);
+        const Data = userData;
 
         axios
-            .post('${http://localhost:3001/Data}', {body: userData})
-            .then(res => setUserData(res))
+            .post('http://localhost:3001/Data', Data)
+            .then(setCreated(true))
             .catch(error => console.log(error))
-
-        updateUser(userData);
 
     }
 

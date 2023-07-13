@@ -1,26 +1,21 @@
 import React, { useState } from "react";
-import LandingPage from "./landingPage";
+import LandingPage from "./LandingPage";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from "./homePage.jsx";
-import AudioTest from "./audiotest.jsx";
-import Meetings from "./meetings.jsx";
-import { UserProvider } from "./UserContext";
+import HomePage from "./HomePage.jsx";
+import AudioTest from "./AudioTest.jsx";
+import Meetings from "./Meetings.jsx";
 
 function App() {
-
-
 
     return (
         <div>
             <Router>
-            <UserProvider>
                 <Routes>
                     <Route path="/" element={<LandingPage />} /> 
                     <Route path="/home" element={<HomePage />} />
                     <Route path="/record" element={<AudioTest />} />
                     <Route path="/meetings" element={<Meetings />} />
                 </Routes>
-            </UserProvider>
             </Router>
         </div>
     );
